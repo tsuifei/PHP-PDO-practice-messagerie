@@ -2,9 +2,9 @@
   require_once('../conn42.php');
   // print_r($_POST);
 
-  $parent_id = $_POST['parent_id'];
-  $nickname = $_POST['nickname'];
-  $comment = $_POST['msg_content'];
+  $parent_id = htmlspecialchars($_POST['parent_id'],ENT_QUOTES);
+  $nickname = htmlspecialchars($_POST['nickname'],ENT_QUOTES);
+  $comment = htmlspecialchars($_POST['msg_content'],ENT_QUOTES);
   
 
   $sql = "INSERT INTO msgboard(parent_id,nickname, comment) values(?,?,?)";
