@@ -1,0 +1,170 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,500,700,800);
+
+:root {
+  /* 淺色底與文字 */
+  --main-bg-color: rgb(252, 251, 250);
+  --main-text-color: rgb(65, 63, 63);
+  --main-link-hover: rgb(65, 63, 63);
+
+  /* 深色底與文字 */
+  --second-bg-color: rgb(128, 120, 134);
+  --second-text-color: rgb(252, 251, 250);
+  --second-link-hover: rgb(207, 197, 140);
+  /* --text-color: rgb(65, 63, 63); */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: 'overpass', sans-serif;
+  font-size: 1em;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans';
+  padding: 0;
+  margin: 0;
+  color: var(--main-text-color);
+  /* 底色漸變 */
+  animation: pulse 70s linear infinite;
+}
+ /* 底色漸變動畫 */
+@keyframes pulse {
+  0% { background-color: #eeede5;}
+  12.5% {background-color: #eee5e9;}
+  25% { background-color: #dfd5d2;}
+  37.5% { background-color: #e5ebee;}
+  50% {background-color: #fff;}
+  62.5% {background-color: #eee5e9;}
+  75% { background-color: #d6d4db;}
+  87.5% { background-color: #cee4e1;}
+  100% { background-color: #eeede5; }
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  color: var(--main-text-color);
+  font-weight: 500;
+}
+
+a:hover,
+a:active {
+  color: var(--main-link-hover);
+}
+
+.bnt {
+  margin: 0px 0px 0px 0px;
+  padding: 8px 10PX;
+  display: inline-block;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.24),
+    0 0px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.wrap {
+  margin: 30px auto;
+  width: 600px;
+}
+
+h1, .site-name {
+  font-size: 1.9em;
+  color: rgb(65, 63, 63);
+  margin: 15px auto;
+  text-align: center;
+}
+/* 主留言框 */
+.add_comment {
+  padding: 20px 35px;
+  margin-bottom: 20px;
+  background: #FFFFFF;
+  font-weight: 300;
+  color: var(--text-color);
+  line-height: 1.5em;
+  max-width: 100%;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2),
+  0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.comments{
+  max-width: 100%;
+  padding: 20px 35px;
+  background: #FFFFFF;
+}
+.comment{
+  border-bottom: 2px dotted rgb(190, 188, 190);
+  max-width: 100%;
+  padding-bottom: 30px;
+  margin-bottom: 15px;
+}
+
+/* 顯示主留言 */
+.add-sub-comment {
+  padding: 20px 35px;
+  background:rgb(224, 215, 231);
+  font-weight: 300;
+  color: var(--text-color);
+  line-height: 1.5em;
+  max-width: 100%;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2),
+  0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  margin-top: 10px;
+}
+
+.sub-comment{
+  border-top: 1px dotted rgb(170, 167, 167);
+  margin-bottom: 10px;
+  margin-left: 30px;
+  margin-top: 15PX;
+  padding-top: 10px;
+}
+
+.comment__bloc{
+  margin-bottom: 10px;
+}
+
+.comment__content {
+}
+
+.comment__author{
+  color: var(--second-bg-color);
+}
+
+.comment__timestamp{
+  color: #ccc;
+  font-size: 0.8em;
+} 
+
+/* form */
+form input,
+form textarea,
+form input[type="date"] {
+  font-family: "Overpass", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 1em;
+}
+
+form input[type="submit"] {
+  font-family: "Overpass", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: var(--second-bg-color);
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  /* margin-top: 20px; */
+  color: #FFFFFF;
+  font-size: 1em;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
