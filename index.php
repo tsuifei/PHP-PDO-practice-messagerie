@@ -1,4 +1,6 @@
 <?php require_once('../conn42.php'); ?>
+<?php require_once('./utils/Parsedown.php'); ?>
+<?php require_once('./utils/utils.php'); ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -40,14 +42,18 @@
       <?php
       // while($row = $stmt->fetchAll(PDO::FETCH_ASSOC)){
         foreach($results as $row){
-        // var_dump($row);
+        // 撈出內容轉成吃 Markdown 格式
+        $comment = escapeOut($row['comment']);
+        $md = new Parsedown();
+        $md->setSafeMode(true); 
+        $comment = $md->text($comment); // 把內文轉成 markdown 格式
         ?>
      
           <!-- // 主留言  -->
           <div class='comment'>
             <div class='comment__bloc'>
             <div class='comment__author'><? echo $row['nickname'] . " : "?>
-            <span class='comment__content'><? echo $row['comment'] ?></span>
+            <span class='comment__content'><? echo $comment ?></span>
             </div>
             <div class='comment__timestamp'><? echo $row['created_at'] ?></div>
           
