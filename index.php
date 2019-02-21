@@ -43,7 +43,7 @@
       // while($row = $stmt->fetchAll(PDO::FETCH_ASSOC)){
         foreach($results as $row){
         // 撈出內容轉成吃 Markdown 格式
-        $comment = escapeOut($row['comment']);
+        $comment = $row['comment'];
         $md = new Parsedown();
         $md->setSafeMode(true); 
         $comment = $md->text($comment); // 把內文轉成 markdown 格式
@@ -71,10 +71,15 @@
               $stmt -> execute();
               // $row_sub = $stmt->fetch(PDO::FETCH_ASSOC); 
               while($row_sub = $stmt->fetch(PDO::FETCH_ASSOC)){
+              // 撈出內容轉成吃 Markdown 格式
+              $comment_sub = $row_sub['comment'];
+              $md = new Parsedown();
+              $md->setSafeMode(true); 
+              $comment_sub = $md->text($comment_sub); // 把內文轉成 markdown 格式
           ?>
                   <div class='comment__bloc'>
                     <div class='comment__author'><? echo $row_sub['nickname'] . " : "?>
-                    <span class='comment__content'><? echo $row_sub['comment'] ?></span>
+                    <span class='comment__content'><? echo $comment_sub ?></span>
                   </div>
                   <div class='comment__timestamp'><? echo $row_sub['created_at'] ?></div>
                 </div>
